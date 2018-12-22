@@ -22,8 +22,7 @@ public class MusicActivity extends AppCompatActivity {
          path = intent.getStringExtra("path");
          presongPath = intent.getStringExtra("presongpath");
          nextsongPath = intent.getStringExtra("nextsongpath");
-//        System.out.print(path);
-//        Log.v("MusicActivite","ooo");
+
 
         Button startbutton = (Button)findViewById(R.id.start);
         Button stopbutton = (Button)findViewById(R.id.stop);
@@ -81,11 +80,9 @@ public class MusicActivity extends AppCompatActivity {
     //播放
             public void play(String path){
             try{
-//                AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
-//                int songid = (int) info.id;
-//                String path = arrayList.get(songid).toString();
+
                 mediaPlayer.reset();
-//                String datapath = arrayList.get(songid);
+
                 mediaPlayer.setDataSource(path);
                 mediaPlayer.prepareAsync();
                 mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
