@@ -73,31 +73,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-//        int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-//        if(permissionCheck != PackageManager.PERMISSION_GRANTED){
-//            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},MY_PERMISSIONS_REQUEST_READ_MEDIA);
-//        }else{
-//            readDataExternal();
-//        }
 
-
-/*
-        String str[] = {MediaStore.Audio.Media._ID,
-                MediaStore.Audio.Media.DISPLAY_NAME,
-                MediaStore.Audio.Media.DATA,
-                MediaStore.Audio.Media.SIZE};
-        //Cursor cursor = this.getContentResolver().query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,null,
-               //null,null,MediaStore.Audio.AudioColumns.IS_MUSIC);
-        Cursor cursor = this.getContentResolver().query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI
-                , null, null, null, MediaStore.Audio.AudioColumns.IS_MUSIC);
-        while (cursor.moveToNext()){
-            String songID = cursor.getString(0);
-            String songName = cursor.getString(1);
-            String songPath = cursor.getString(2);
-            String songSize = cursor.getString(3);
-            arrayList.add(songPath);
-            */
-//            songNameList=new ArrayList<>();
         listsong = new ArrayList<>();
         listsong = Utils.getmusic(this);
         for (int i = 0; i < listsong.size(); i++) {
@@ -110,14 +86,7 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {//长按弹出菜单
-//                Intent intent = new Intent(MainActivity.this,MusicActivity.class);
-//                startActivity(intent);
 
-//                        Bundle bundle = new Bundle();
-//                        bundle.putParcelableArrayList("songlist",listsong);
-//                        String path =  listView.getItemAtPosition(position).toString();
-//                        SongInfo songInfo1 = new SongInfo();
-//                        String path = songInfo1.getSongPath();
                 int songid = (int) id;
                 Intent intent = new Intent(MainActivity.this, MusicActivity.class);
                 if (position > 0 && position < listsong.size() - 1) {
@@ -150,76 +119,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-//        ItemOnLongClick1();
-    }
 
-//    private void ItemOnLongClick1() {
-//
-//        listView.setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
-//            @Override
-//            public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
-//
-//                contextMenu.add(0,0,0,"播放");
-//                contextMenu.add(0,1,0,"停止");
-//                contextMenu.add(0,2,0,"循环");
-//                contextMenu.add(0,3,0,"暂停");
-//                contextMenu.add(0,4,0,"上一曲");
-//                contextMenu.add(0,5,0,"下一曲");
-//
-//
-//            }
-//        });
-//
-//    }
-//    public  boolean onContextItemSelected(MenuItem item){//点击菜单选项实现相应操作
-//
-//        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item
-//                .getMenuInfo();
-//        int songid = (int) info.id;
-//        String path = listsong.get(songid).songPath;
-//        switch (item.getItemId()){
-//            //播放
-//            case 0:
-//                play(path);
-//                break;
-//            //停止
-//            case 1:
-//                mediaPlayer.stop();
-//                break;
-//            //单曲循环
-//            case 2:
-//                boolean loop1 = mediaPlayer.isLooping();
-//                if(loop1){
-//                    mediaPlayer.setLooping(!loop1);
-//                }else{
-//                    mediaPlayer.setLooping(!loop1);
-//                }
-//                break;
-//            //暂停
-//            case 3:
-//                if (mediaPlayer.isPlaying()) {
-//                    mediaPlayer.pause();
-//                }else{
-//                    mediaPlayer.start();
-//                }
-//                break;
-//            //播放上一曲
-//            case 4:
-//                String p1 = listsong.get(songid-1).songPath;
-//                play(p1);
-//                break;
-//            //播放下一曲
-//            case 5:
-//                String p2 = listsong.get(songid+1).songPath;
-//                play(p2);
-//                break;
-//
-//            default:
-//                break;
-//
-//        }
-//        return super.onContextItemSelected(item);
-//    }
 
 
     //权限请求许可
